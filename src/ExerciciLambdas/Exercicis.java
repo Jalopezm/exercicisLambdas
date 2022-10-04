@@ -157,7 +157,7 @@ public class Exercicis {
         return new Supplier<IntUnaryOperator>() {
             @Override
             public IntUnaryOperator get() {
-                return i -> n*i;
+                return i -> n * i;
             }
         };
 
@@ -229,7 +229,7 @@ public class Exercicis {
 //                };
 //            }
 //        };
-      return  (runneable) -> () -> {
+        return (runneable) -> () -> {
             Thread t = new Thread(runneable);
             t.start();
             return t;
@@ -314,6 +314,7 @@ public class Exercicis {
 //                    }
 //                };
 //            }
-        return ()->()->() -> "BEN FET!";
-        };
+        return () -> () -> () -> "BEN FET!";
     }
+
+}

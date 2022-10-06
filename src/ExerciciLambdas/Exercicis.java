@@ -304,17 +304,22 @@ public class Exercicis {
      * Retorna un Supplier d'un Supplier d'un Supplier de l'string "BEN FET!"
      */
     public static Supplier<Supplier<Supplier<String>>> trickyWellDoneSupplier() {
-//        return new Supplier<Supplier<Supplier<String>>>() {
-//            @Override
-//            public Supplier<Supplier<String>> get() {
-//                return new Supplier<Supplier<String>>() {
-//                    @Override
-//                    public Supplier<String> get() {
-//                        return null;
-//                    }
-//                };
-//            }
-        return () -> () -> () -> "BEN FET!";
+        return new Supplier<Supplier<Supplier<String>>>() {
+            @Override
+            public Supplier<Supplier<String>> get() {
+                return new Supplier<Supplier<String>>() {
+                    @Override
+                    public Supplier<String> get() {
+                        return new Supplier<String>() {
+                            @Override
+                            public String get() {
+                                return "BEN FET!";
+                            }
+                        };
+                    }
+                };
+            }
+//        return () -> () -> () -> "BEN FET!";
+        };
     }
-
 }
